@@ -6,8 +6,8 @@ BUFFER_SIZE = 1024
 MESSAGE = "Hello, World!"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((TCP_IP, TCP_PORT))
-s.sendto(MESSAGE.encode())
+# s.connect()
+s.sendto(MESSAGE.encode(), (TCP_IP, TCP_PORT))
 data = s.recv(BUFFER_SIZE)
 s.close()
 
