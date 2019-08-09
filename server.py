@@ -1,4 +1,10 @@
 import socket
+from gpiozero import LED
+import time
+
+G = LED(18)
+R= LED(12)
+Y= LED(13)
 
 TCP_IP = '192.168.43.144' # this IP of my pc. When I want raspberry pi 2`s as a server, I replace it with its IP '169.254.54.195'
 TCP_PORT = 5005
@@ -13,6 +19,9 @@ print ('Connection address:', addr)
 while 1:
     data = conn.recv(BUFFER_SIZE)
     if not data: break
-    print ("received data:", data)
+    if data is "ON":
+        G.on()
+    else:
+        G.off()
     conn.send(data)  # echo
 conn.close()
