@@ -11,4 +11,4 @@ s.send(MESSAGE.encode())
 data = s.recv(BUFFER_SIZE)
 s.close()
 
-print ("received data:", data)
+print ("client log data:", data)
